@@ -7,13 +7,248 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/display_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/display_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="150dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/display_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="60dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/display_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="335dp" />
+
+    <EditText
+        android:id="@+id/eT_numbersDisplay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="enter numbers here:"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/display_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/display_right"
+        app:layout_constraintStart_toStartOf="@+id/display_left"
+        app:layout_constraintTop_toTopOf="@+id/display_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/addition_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="15dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/addition_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="95dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/subtraction_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="115dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/subtraction_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="195dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/multiplication_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="215dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/multiplication_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="295dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/division_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="315dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/division_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="395dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/operations_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="175dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/operations_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="260dp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/operations_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/addition_right"
+        app:layout_constraintStart_toStartOf="@+id/addition_left"
+        app:layout_constraintTop_toTopOf="@+id/operations_top" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/operations_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/subtraction_right"
+        app:layout_constraintStart_toStartOf="@+id/subtraction_left"
+        app:layout_constraintTop_toTopOf="@+id/operations_top" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="*"
+        app:layout_constraintBottom_toTopOf="@+id/operations_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/multiplication_right"
+        app:layout_constraintStart_toStartOf="@+id/multiplication_left"
+        app:layout_constraintTop_toTopOf="@+id/operations_top" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="/"
+        app:layout_constraintBottom_toTopOf="@+id/operations_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/division_right"
+        app:layout_constraintStart_toStartOf="@+id/division_left"
+        app:layout_constraintTop_toTopOf="@+id/operations_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/specialButtons_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="285dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/specialButtons_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="355dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eraser_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eraser_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="170dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/equals_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="230dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/equals_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="370dp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="A/C"
+        app:layout_constraintBottom_toTopOf="@+id/specialButtons_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/eraser_right"
+        app:layout_constraintStart_toStartOf="@+id/eraser_left"
+        app:layout_constraintTop_toTopOf="@+id/specialButtons_top" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="="
+        app:layout_constraintBottom_toTopOf="@+id/specialButtons_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/equals_right"
+        app:layout_constraintStart_toStartOf="@+id/equals_left"
+        app:layout_constraintTop_toTopOf="@+id/specialButtons_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credits_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="605dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credits_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="660dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credits_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="65dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credits_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="175dp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="credits"
+        app:layout_constraintBottom_toTopOf="@+id/credits_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/credits_right"
+        app:layout_constraintStart_toStartOf="@+id/credits_left"
+        app:layout_constraintTop_toTopOf="@+id/credits_top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
