@@ -7,4 +7,79 @@
     android:layout_height="match_parent"
     tools:context=".CreditScreenActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credit_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="125dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credit_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="350dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credit_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="80dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/credit_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="330dp" />
+
+    <TextView
+        android:id="@+id/tV_credit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/credit_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/credit_right"
+        app:layout_constraintStart_toStartOf="@+id/credit_left"
+        app:layout_constraintTop_toTopOf="@+id/credit_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/backBtn_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="605dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/backBtn_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="660dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/backBtn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="65dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/backBtn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="175dp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Back"
+        android:onClick="returnToCalculator"
+        app:layout_constraintBottom_toTopOf="@+id/backBtn_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/backBtn_right"
+        app:layout_constraintStart_toStartOf="@+id/backBtn_left"
+        app:layout_constraintTop_toTopOf="@+id/backBtn_top" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.ex0811;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     double result;
     boolean numberEntered;
     char lastOperation;
+    Intent si;
+    boolean resultRecorded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         result = 0;
         numberEntered = false;
         lastOperation = '!';
+        si = new Intent(this,CreditScreenActivity.class);
+        resultRecorded = false;
     }
 
     public void addition(View view) {
@@ -96,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void reset(View view) {
         eT_numbersDisplay.getText().clear();
-        result = 0;
         numberEntered = false;
         lastOperation = '!';
     }
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
     public void showResult(View view) {
         if (!eT_numbersDisplay.getText().toString().isEmpty())
         {
+            resultRecorded = true;
             if (lastOperation != '!')
             {
                 result = calcLastAction(result,lastOperation,eT_numbersDisplay);
@@ -131,5 +136,11 @@ public class MainActivity extends AppCompatActivity {
             case '*': return lastResult*Double.parseDouble(eT.getText().toString());
             default: return lastResult/Double.parseDouble(eT.getText().toString());
         }
+    }
+
+    public void goToCreditsScreen(View view) {
+        si.putExtra("result",result);
+        si.putExtra("record",resultRecorded);
+        startActivity(si);
     }
 }
