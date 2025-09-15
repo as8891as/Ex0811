@@ -12,10 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class CreditScreenActivity extends AppCompatActivity {
-    TextView tV_credit;
-    Intent gi;
-    double credit;
-    boolean creditGiven;
+    private TextView tV_credit;
+    private Intent gi;
+    private double credit;
+    private boolean creditGiven;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

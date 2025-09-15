@@ -12,27 +12,31 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    EditText eT_numbersDisplay;
-    double result;
-    boolean numberEntered;
-    char lastOperation;
-    Intent si;
-    boolean resultRecorded;
+    private  EditText eT_numbersDisplay;
+    private double result;
+    private double lastNumber;
+    private boolean numberEntered;
+    private boolean resultGiven;
+    private char lastOperation;
+    private Intent si;
+    private boolean resultRecorded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         eT_numbersDisplay = findViewById(R.id.eT_numbersDisplay);
-        result = 0;
         numberEntered = false;
+        resultGiven = false;
         lastOperation = '!';
         si = new Intent(this,CreditScreenActivity.class);
         resultRecorded = false;
     }
 
     public void addition(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty()) {
+        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^infty]*")) {
+            resultGiven = false;
+            lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
                 result = Double.parseDouble(eT_numbersDisplay.getText().toString());
                 eT_numbersDisplay.getText().clear();
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                result = calcLastAction(result, lastOperation, eT_numbersDisplay);
+                result = calcLastAction(result,lastOperation,Double.parseDouble(eT_numbersDisplay.getText().toString()));
                 lastOperation = '+';
                 eT_numbersDisplay.getText().clear();
             }
@@ -49,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subtraction(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty()) {
+        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^infty]*")) {
+            resultGiven = false;
+            lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
                 result = Double.parseDouble(eT_numbersDisplay.getText().toString());
                 eT_numbersDisplay.getText().clear();
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                result = calcLastAction(result, lastOperation, eT_numbersDisplay);
+                result = calcLastAction(result,lastOperation,Double.parseDouble(eT_numbersDisplay.getText().toString()));
                 lastOperation = '-';
                 eT_numbersDisplay.getText().clear();
             }
@@ -66,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void multiplication(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty()) {
+        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^infty]*")) {
+            resultGiven = false;
+            lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
                 result = Double.parseDouble(eT_numbersDisplay.getText().toString());
                 eT_numbersDisplay.getText().clear();
@@ -75,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                result = calcLastAction(result, lastOperation, eT_numbersDisplay);
+                result = calcLastAction(result,lastOperation,Double.parseDouble(eT_numbersDisplay.getText().toString()));
                 lastOperation = '*';
                 eT_numbersDisplay.getText().clear();
             }
@@ -83,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void division(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty()) {
+        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^infty]*")) {
+            resultGiven = false;
+            lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
                 result = Double.parseDouble(eT_numbersDisplay.getText().toString());
                 eT_numbersDisplay.getText().clear();
@@ -92,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                result = calcLastAction(result, lastOperation, eT_numbersDisplay);
+                result = calcLastAction(result,lastOperation,Double.parseDouble(eT_numbersDisplay.getText().toString()));
                 lastOperation = '/';
                 eT_numbersDisplay.getText().clear();
             }
@@ -106,12 +116,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showResult(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty())
+        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^infty]*"))
         {
             resultRecorded = true;
             if (lastOperation != '!')
             {
-                result = calcLastAction(result,lastOperation,eT_numbersDisplay);
+                if (!resultGiven)
+                {
+                    result = calcLastAction(result,lastOperation,Double.parseDouble(eT_numbersDisplay.getText().toString()));
+                }
+                else
+                {
+                    result = calcLastAction(result,lastOperation,lastNumber);
+                }
             }
             else
             {
@@ -125,16 +142,18 @@ public class MainActivity extends AppCompatActivity {
             {
                 eT_numbersDisplay.setText(result+"");
             }
+            numberEntered = false;
+            resultGiven = true;
         }
     }
-    private static double calcLastAction(double lastResult, char lastAction, EditText eT)
+    private static double calcLastAction(double lastResult, char lastAction, double newNumber)
     {
         switch(lastAction)
         {
-            case '+': return lastResult+Double.parseDouble(eT.getText().toString());
-            case '-': return lastResult-Double.parseDouble(eT.getText().toString());
-            case '*': return lastResult*Double.parseDouble(eT.getText().toString());
-            default: return lastResult/Double.parseDouble(eT.getText().toString());
+            case '+': return lastResult+newNumber;
+            case '-': return lastResult-newNumber;
+            case '*': return lastResult*newNumber;
+            default: return lastResult/newNumber;
         }
     }
 
