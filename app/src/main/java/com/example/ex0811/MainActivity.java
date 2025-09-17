@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addition(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^ainNfty]*")) {
+        if (eT_numbersDisplay.getText().toString().isEmpty() || !eT_numbersDisplay.getText().toString().matches("[^ainNfty]*") || (!eT_numbersDisplay.getText().toString().contains(String.valueOf('E')) || (eT_numbersDisplay.getText().toString().indexOf('E') != 0 && eT_numbersDisplay.getText().toString().indexOf('E') != eT_numbersDisplay.getText().toString().length() - 1))) {
             resultGiven = false;
             lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subtraction(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^ainNfty]*")) {
+        if (eT_numbersDisplay.getText().toString().isEmpty() || !eT_numbersDisplay.getText().toString().matches("[^ainNfty]*") || (!eT_numbersDisplay.getText().toString().contains(String.valueOf('E')) || (eT_numbersDisplay.getText().toString().indexOf('E') != 0 && eT_numbersDisplay.getText().toString().indexOf('E') != eT_numbersDisplay.getText().toString().length() - 1))) {
             resultGiven = false;
             lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void multiplication(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^ainNfty]*")) {
+        if (eT_numbersDisplay.getText().toString().isEmpty() || !eT_numbersDisplay.getText().toString().matches("[^ainNfty]*") || (!eT_numbersDisplay.getText().toString().contains(String.valueOf('E')) || (eT_numbersDisplay.getText().toString().indexOf('E') != 0 && eT_numbersDisplay.getText().toString().indexOf('E') != eT_numbersDisplay.getText().toString().length() - 1))) {
             resultGiven = false;
             lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void division(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^ainNfty]*")) {
+        if (eT_numbersDisplay.getText().toString().isEmpty() || !eT_numbersDisplay.getText().toString().matches("[^ainNfty]*") || (!eT_numbersDisplay.getText().toString().contains(String.valueOf('E')) || (eT_numbersDisplay.getText().toString().indexOf('E') != 0 && eT_numbersDisplay.getText().toString().indexOf('E') != eT_numbersDisplay.getText().toString().length() - 1))) {
             resultGiven = false;
             lastNumber = Double.parseDouble(eT_numbersDisplay.getText().toString());
             if (!numberEntered) {
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showResult(View view) {
-        if (!eT_numbersDisplay.getText().toString().isEmpty() && eT_numbersDisplay.getText().toString().matches("[^ainNfty]*"))
+        if (eT_numbersDisplay.getText().toString().isEmpty() || !eT_numbersDisplay.getText().toString().matches("[^ainNfty]*") || (!eT_numbersDisplay.getText().toString().contains(String.valueOf('E')) || (eT_numbersDisplay.getText().toString().indexOf('E') != 0 && eT_numbersDisplay.getText().toString().indexOf('E') != eT_numbersDisplay.getText().toString().length() - 1)))
         {
             resultRecorded = true;
             if (lastOperation != '!')
